@@ -1,7 +1,7 @@
 {
   "name": "gravatar-from-email",
   "version": "1.0.0",
-  "description": "Get a Gravatar as a URL",
+  "description": "Get a Gravatar as a URL from an email",
   "keywords": [
     "gravatar",
     "hash"
@@ -114,7 +114,7 @@
   "size-limit": [
     {
       "path": "distribution/index.js",
-      "limit": "500B"
+      "limit": "300B"
     }
   ]
 }
