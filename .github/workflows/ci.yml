@@ -15,8 +15,8 @@ jobs:
     timeout-minutes: 10
     strategy:
       matrix:
-        nodejs: lts/hydrogen
-        os: ubuntu-latest
+        nodejs: [lts/hydrogen]
+        os: [ubuntu-latest]
 
     steps:
       - name: Setup
