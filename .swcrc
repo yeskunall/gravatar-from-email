@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json.schemastore.org/swcrc",
+  "jsc": {
+    "minify": {
+      "compress": {
+        "unused": true
+      },
+      "mangle": true
+    },
+    "parser": {
+      "dynamicImport": false,
+      "syntax": "typescript",
+      "tsx": false
+    },
+    "target": "es2022"
+  },
+  "minify": true
+}

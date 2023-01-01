@@ -1,0 +1,7 @@
+distribution/
+.env
+.env.*
+
+node_modules
+
+*.tsbuildinfo

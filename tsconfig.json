@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["ESNext"],
+    "module": "ESNext",
+    // Needs to be set to `Node` (and not `NodeNext`), otherwise
+    // `ava` does not work
+    // See https://github.com/avajs/ava/blob/main/docs/recipes/typescript.md#for-packages-with-type-module for more
+    "moduleResolution": "Node",
+    "noEmitOnError": true,
+    "noImplicitOverride": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "ESNext"
+  },
+  "include": ["source/**/*"],
+  "exclude": ["node_modules", "test/**"]
+}

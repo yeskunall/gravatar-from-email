@@ -1,0 +1,120 @@
+{
+  "name": "gravatar-from-email",
+  "version": "1.0.0",
+  "description": "Get a Gravatar as a URL",
+  "keywords": [
+    "gravatar",
+    "hash"
+  ],
+  "homepage": "https://github.com/yeskunall/gravatar-from-email#readme",
+  "bugs": {
+    "url": "https://github.com/yeskunall/gravatar-from-email/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yeskunall/gravatar-from-email.git"
+  },
+  "license": "MIT",
+  "author": "Kunall Banerjee <hey@kimchiii.space> (https://kimchiii.space/)",
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./distribution/index.js"
+  },
+  "types": "index.d.ts",
+  "files": [
+    "distribution",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "build": "rimraf distribution && pnpm run lint && swc source --out-dir distribution --source-maps false && tsc --emitDeclarationOnly --outDir . --project tsconfig.json && size-limit",
+    "lint": "eslint source --fix",
+    "prepare": "husky install",
+    "prepublishOnly": "pnpm test && pnpm build",
+    "test": "ava"
+  },
+  "prettier": {
+    "arrowParens": "avoid",
+    "bracketSpacing": true,
+    "proseWrap": "always",
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "prettier"
+    ],
+    "rules": {
+      "max-len": [
+        1,
+        80,
+        2,
+        {
+          "ignorePattern": "^import\\s.+\\sfrom\\s.+;$",
+          "ignoreRegExpLiterals": true,
+          "ignoreStrings": true,
+          "ignoreTemplateLiterals": true,
+          "ignoreUrls": true
+        }
+      ],
+      "no-console": "warn",
+      "@typescript-eslint/ban-ts-comment": [
+        "error",
+        {
+          "ts-expect-error": "allow-with-description",
+          "ts-ignore": "allow-with-description",
+          "ts-nocheck": "allow-with-description"
+        }
+      ]
+    }
+  },
+  "ava": {
+    "extensions": {
+      "ts": "module"
+    },
+    "files": [
+      "test/**/*.test.ts"
+    ],
+    "nodeArguments": [
+      "--experimental-specifier-resolution=node",
+      "--loader=ts-node/esm",
+      "--no-warnings"
+    ]
+  },
+  "devDependencies": {
+    "@ava/typescript": "3.0.1",
+    "@swc/cli": "0.1.59",
+    "@swc/core": "1.3.24",
+    "@types/node": "18.11.18",
+    "@typescript-eslint/eslint-plugin": "5.47.1",
+    "@typescript-eslint/parser": "5.47.1",
+    "ava": "5.1.0",
+    "eslint": "8.31.0",
+    "eslint-config-prettier": "8.5.0",
+    "husky": "8.0.2",
+    "rimraf": "3.0.2",
+    "size-limit": "8.1.0",
+    "size-limit-preset-node-lib": "0.2.0",
+    "ts-node": "10.9.1",
+    "typescript": "4.9.4"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=7"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "size-limit": [
+    {
+      "path": "distribution/index.js",
+      "limit": "500B"
+    }
+  ]
+}
