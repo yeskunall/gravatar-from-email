@@ -27,11 +27,11 @@
     "index.d.ts"
   ],
   "scripts": {
-    "build": "rimraf distribution && pnpm run lint && swc source --out-dir distribution --source-maps false && tsc --emitDeclarationOnly --outDir . --project tsconfig.json && size-limit",
+    "build": "rimraf distribution && pnpm run lint && swc source --out-dir distribution --source-maps false && size-limit",
     "lint": "eslint source --fix",
     "prepare": "husky install",
     "prepublishOnly": "pnpm test && pnpm build",
-    "test": "ava"
+    "test": "ava && tsd"
   },
   "prettier": {
     "arrowParens": "avoid",
@@ -101,6 +101,7 @@
     "size-limit": "8.1.0",
     "size-limit-preset-node-lib": "0.2.0",
     "ts-node": "10.9.1",
+    "tsd": "0.25.0",
     "typescript": "4.9.4"
   },
   "engines": {
@@ -116,5 +117,8 @@
       "path": "distribution/index.js",
       "limit": "300B"
     }
-  ]
+  ],
+  "tsd": {
+    "directory": "test"
+  }
 }

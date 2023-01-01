@@ -1,6 +1,6 @@
 import test from 'ava';
 
-import { gravatarFromEmail } from '../source/index';
+import { gravatarFromEmail } from '../source/index.js';
 
 test('`deepEqual` assertion with custom options', t => {
   const gravatar1028 = gravatarFromEmail('to@example.com', { size: '1028' });
