@@ -9,11 +9,11 @@
 pnpm add --save-prod gravatar-from-email
 ```
 
-> **Warning** This package is
+> **Warning**: This package is
 > [ESM](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c)
 > only
 
-> **Note** The [`engines`](./package.json#L57) field is set to `>=18`, but it
+> **Note**: The [`engines`](./package.json#L114) field is set to `>=18`, but it
 > should work with Node.js **>=14.16**, and **>=16.0**
 
 ## Usage
@@ -34,7 +34,7 @@ Email to get the Gravatar for.
 
 #### `options?`
 
-Type: [`Options`](./src/index.ts#L3)
+Type: [`Options`](./index.d.ts#L1)
 
 An optional
 [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
@@ -55,6 +55,12 @@ applied:
 A lot of websites support Gravatars these days, either implicitly, or they allow
 you to set your profile picture explicitly by passing an
 [image request URL](https://en.gravatar.com/site/implement/images/#base-request).
+
+#### Why use this over existing implementations?
+
+No reason at all. If you find existing implementations better suited to your
+needs, by all means, use that. I wrote this for my own needs, and plan on
+maintaining it for a long time.
 
 #### Why does this not also check if the input (email) is _email-like_?
 
@@ -79,15 +85,32 @@ Because it’s 2023. Also, because it is more secure than the alternative.
 
 ## Related
 
-- [gravatar-img](https://github.com/CICCIOSGAMINO/gravatar-img)[^2]
+- [gravatar-img](https://www.npmjs.com/package/gravatar-img)[^2]
+- [gravatar-url](https://www.npmjs.com/package/gravatar-url)[^3]
+- [machinepack-gravatar](https://www.npmjs.com/package/machinepack-gravatar)[^4]
+- [js-gravatar](https://www.npmjs.com/package/js-gravatar)[^5]
+- [More...](https://www.npmjs.com/search?q=gravatar)
 
 [^1]:
-    See this
-    [comment](https://github.com/sindresorhus/ama/issues/10#issuecomment-117766328)
-    on making small, focused modules. Also a good read:
-    [Unix philosophy](https://en.wikipedia.org/wiki/Unix_philosophy).
+    [DOTADIW](https://en.wikipedia.org/wiki/Unix_philosophy#Do_One_Thing_and_Do_It_Well).
 
 [^2]:
     It does not support ESM, has an external dependency
     ([`crypto-js`](https://www.npmjs.com/package/crypto-js)), and is not
-    actively maintained)
+    actively maintained
+
+[^3]:
+    It does support ESM, is actively maintained, and will probably work just as
+    well as this package. But it has external dependencies
+    ([md5-hex](https://www.npmjs.com/package/md5-hex) and
+    [`type-fest`](https://www.npmjs.com/package/type-fest))
+
+[^4]:
+    It does not support ESM, has external dependencies
+    ([@sailshq/lodash](https://www.npmjs.com/package/@sailshq/lodash) and
+    [`machine`](https://www.npmjs.com/package/machine)), and is not actively
+    maintained
+
+[^5]:
+    It does not support ESM, has an external dependency
+    ([`md5`](https://www.npmjs.com/package/md5)), and is not actively maintained

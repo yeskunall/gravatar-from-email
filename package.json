@@ -3,8 +3,15 @@
   "version": "1.0.0",
   "description": "Get a Gravatar as a URL from an email",
   "keywords": [
+    "avatar",
+    "email",
     "gravatar",
-    "hash"
+    "hash",
+    "identifier",
+    "image",
+    "photo",
+    "picture",
+    "profile"
   ],
   "homepage": "https://github.com/yeskunall/gravatar-from-email#readme",
   "bugs": {
